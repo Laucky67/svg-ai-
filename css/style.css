@@ -1,0 +1,205 @@
+/* 样式设置 */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+#chat-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#messages {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background-color: #fff;
+}
+
+.message {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.message.user {
+    justify-content: flex-end;
+}
+
+.message.assistant {
+    justify-content: flex-start;
+}
+
+.message-content {
+    max-width: 70%;
+    padding: 10px 15px;
+    border-radius: 10px;
+    line-height: 1.5;
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    position: relative;
+}
+
+.user .message-content {
+    background-color: #dcf8c6;
+    border-bottom-right-radius: 0;
+}
+
+.user .message-content::after {
+    content: '';
+    position: absolute;
+    right: -10px;
+    top: 10px;
+    border-width: 10px 0 10px 10px;
+    border-style: solid;
+    border-color: transparent transparent transparent #dcf8c6;
+}
+
+.assistant .message-content {
+    background-color: #fff;
+    border-bottom-left-radius: 0;
+    border: 1px solid #e6e6e6;
+}
+
+.assistant .message-content::after {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 10px;
+    border-width: 10px 10px 10px 0;
+    border-style: solid;
+    border-color: transparent #fff transparent transparent;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+}
+
+pre.code-block {
+    background-color: #f8f8f8;
+    color: #2d2d2d;
+    padding: 15px;
+    overflow-x: auto;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-size: 14px;
+    border: 1px solid #e6e6e6;
+    display: none; /* 默认隐藏代码块 */
+}
+
+pre.code-block code {
+    background: none;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.code-toggle {
+    cursor: pointer;
+    color: #007bff;
+    margin-top: 5px;
+    user-select: none;
+}
+
+.code-toggle:hover {
+    text-decoration: underline;
+}
+
+.svg-container {
+    position: relative;
+}
+
+.download-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #009688;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.download-button:hover {
+    background-color: #00796b;
+}
+
+svg.rendered-svg {
+    display: block;
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    max-width: 100%;
+}
+
+#input-area {
+    display: flex;
+    padding: 10px;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+}
+
+#user-input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    background-color: #f1f0f0;
+    outline: none;
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+#send-button {
+    background-color: #009688;
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    outline: none;
+}
+
+#send-button:hover {
+    background-color: #00796b;
+}
+
+#send-button i {
+    position: relative;
+    top: 2px;
+}
+
+@media screen and (max-width: 600px) {
+    #messages {
+        padding: 10px;
+    }
+
+    .message-content {
+        max-width: 90%;
+    }
+
+    pre.code-block {
+        font-size: 12px;
+        padding: 10px;
+    }
+
+    #user-input {
+        font-size: 14px;
+    }
+
+    .download-button {
+        font-size: 12px;
+        padding: 5px 8px;
+    }
+}
+
